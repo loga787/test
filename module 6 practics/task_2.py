@@ -13,12 +13,11 @@ print('Задача 2. Слишком большие числа')
 #
 #Введите число: 0
 #Кол-во цифр в числе: 1
-a = int ( input ( 'Введите число: ' ))
-n = 0
-while True:
-    n += 1
+
+a = int(input('Введите число: '))
+digit_count = 1
+while a // 10 > 0:
     a //= 10
-    print (a)
-    if a == 0:
-        break   
-print ('Кол-во цифр в числе:', n )
+    digit_count += 1
+
+print('Кол-во цифр в числе:', digit_count)
