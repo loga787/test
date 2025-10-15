@@ -12,4 +12,33 @@
 
 # Количество цифр 0: 2
 # Количество букв л: 1
-def count_letters(text):
+def count_letters():
+    # Ввод текста от пользователя
+    text = input("Введите текст: ")
+    # Ввод символов для поиска
+    digit = input("Какую цифру ищем? ")
+    letter = input("Какую букву ищем? ")
+
+    # Проверка, что введены один символ
+    if len(digit) != 1 or not digit.isdigit():
+        print("Ошибка: введите одну цифру.")
+        return
+    if len(letter) != 1 or not letter.isalpha():
+        print("Ошибка: введите одну букву.")
+        return
+
+    # Подсчёт
+    count_digit = 0
+    count_letter = 0
+    for i in text:
+        if i == digit:
+            count_digit += 1
+        elif i == letter:
+            count_letter += 1
+
+    # Вывод результатов
+    print("Количество цифр",digit + ': ',count_digit)
+    print("Количество букв",letter + ': ',count_letter)
+
+# Вызов функции
+count_letters()

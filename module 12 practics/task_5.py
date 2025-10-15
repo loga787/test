@@ -10,14 +10,74 @@
 
 # Что нужно сделать
 # Используя этот шаблон проекта, реализуйте игры «Камень, ножницы, бумага» и «Угадай число».
+import random
 
 def rock_paper_scissors():
   # Здесь будет игра «Камень, ножницы, бумага»
+    print("Игра: Камень, ножницы, бумага")
+    choice = input("Введите ваш выбор (камень, ножницы, бумага): ").strip().lower()
+    options = ['камень', 'ножницы', 'бумага']
+    
+    if choice not in options:
+        print("Некорректный ввод. Попробуйте снова.")
+        return
+    
+    computer_choice = random.choice(options)
+    print("Компьютер выбрал:",computer_choice)
+    
+    # Определение победителя
+    if choice == computer_choice:
+        print("Ничья!")
+    elif (choice == 'камень' and computer_choice == 'ножницы') \
+        or (choice == 'ножницы' and computer_choice == 'бумага') \
+        or (choice == 'бумага' and computer_choice == 'камень'):
+        print("Вы победили!")
+    else:
+        print("Вы проиграли!")
 
 def guess_the_number():
   # Здесь будет игра «Угадай число»
+    print("Игра: Угадай число")
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
+    
+    while True:
+        try:
+            guess = int(input("Введите число от 1 до 100: "))
+        except ValueError:
+            print("Пожалуйста, введите число.")
+            continue
+        
+        attempts += 1
+        
+        if guess < number_to_guess:
+            print("Больше.")
+        elif guess > number_to_guess:
+            print("Меньше.")
+        else:
+            print(f"Поздравляем! Вы угадали число {number_to_guess} за {attempts} попыток.")
+            break
 
 def main_menu():
   # Здесь главное меню игры
+      while True:
+        print("\nГлавное меню")
+        print("1. Игра 'Камень, ножницы, бумага'")
+        print("2. Игра 'Угадай число'")
+        print("3. Выход")
+        choice = input("Выберите номер пункта: ").strip()
+        if choice == '1':
+            rock_paper_scissors()
+        elif choice == '2':
+            guess_the_number()
+        elif choice == '3':
+            print("Выход из программы.")
+            break
+        else:
+            print("Некорректный выбор. Попробуйте еще раз.")
 
+# Запуск программы
 main_menu()
+
+
+
