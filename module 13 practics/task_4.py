@@ -12,7 +12,6 @@
 # Разбейте приведённую ниже программу на функции. Повторений кода должно быть как можно меньше. Также сделайте, чтобы в основной части программы был только ввод чисел, затем изменённые числа и вывод их суммы.
 
 def count_numbers(number):
-    """Возвращает количество цифр в числе."""
     count = 0
     temp = number
     while temp > 0:
@@ -21,10 +20,6 @@ def count_numbers(number):
     return count
 
 def change_number(number):
-    """
-    Меняет местами первую и последнюю цифры числа
-    и возвращает полученное число.
-    """
     num_digits = count_numbers(number)
     last_digit = number % 10
     first_digit = number // 10 ** (num_digits - 1)

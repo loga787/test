@@ -1,9 +1,11 @@
 def input_digits_only(s):
-    """Возвращает только цифры из строки s."""
-    return ''.join(ch for ch in s if ch.isdigit())
+    digits_only = ''
+    for ch in s:
+        if '0' <= ch <= '9':
+            digits_only += ch
+    return digits_only
 
 def input_with_validation(prompt, length=None):
-    """Ввод строки с проверкой на количество цифр, если указана длина."""
     while True:
         value = input(prompt)
         digits = input_digits_only(value)
@@ -16,7 +18,6 @@ def input_with_validation(prompt, length=None):
             return value
 
 def input_positive_int(prompt):
-    """Ввод положительного целого числа."""
     while True:
         try:
             value = int(input(prompt))
